@@ -42,6 +42,9 @@
   right: 63px;
   top: 5px;
 }
+.extraInfo {
+  font-size: 12px;
+}
 
 #cel,
 #fah,
@@ -68,6 +71,13 @@
   font-size: 45px;
 }
 
+#srcCodeLink {
+  font-size: 13px;
+  position: relative;
+  left: 380px;
+  bottom: 17px;
+}
+
 h1 {
   font-size: 55px;
   font-weight: bold;
@@ -76,9 +86,7 @@ h1 {
 h3 {
   font-size: 41px;
 }
-p {
-  font-size: 12px;
-}
+
 hr {
   width: 436px;
 }
