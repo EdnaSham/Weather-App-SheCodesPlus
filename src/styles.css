@@ -1,0 +1,84 @@
+.card {
+  background-color: #f0fbff;
+  padding: 30px;
+  margin: 30px auto;
+  width: 500px;
+}
+.form-control {
+  background-color: #aedefc;
+  color: black;
+  width: 200px;
+  border: none;
+  height: 40px;
+  margin-left: -9px;
+}
+.currentWeather {
+  color: #f9d71c;
+  font-size: 85px;
+  position: relative;
+  right: 75px;
+  top: -20px;
+}
+.sunRain {
+  color: #3c90d4;
+  font-size: 30px;
+}
+.rainHeavy {
+  color: rgb(17, 68, 110);
+  font-size: 30px;
+}
+
+.col-2 {
+  font-size: 12px;
+}
+
+.rain,
+.wind {
+  position: relative;
+  right: 10px;
+}
+.currentDegree {
+  position: relative;
+  right: 63px;
+  top: 5px;
+}
+
+#cel,
+#fah,
+#divider {
+  font-size: 10px;
+  position: relative;
+  bottom: 27px;
+  /* color: black; */
+  color: #f9d71c;
+}
+#searchTheCity {
+  width: 93px;
+  position: relative;
+  left: 4px;
+}
+#currentCity {
+  background-color: #aedefc;
+  color: black;
+  width: 93px;
+  height: 40px;
+  border: none;
+}
+#temprature {
+  font-size: 45px;
+}
+
+h1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #f9d71c;
+}
+h3 {
+  font-size: 41px;
+}
+p {
+  font-size: 12px;
+}
+hr {
+  width: 436px;
+}
