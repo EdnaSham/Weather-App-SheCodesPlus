@@ -72,10 +72,12 @@
 }
 
 #srcCodeLink {
-  font-size: 13px;
+  width: 260px;
+  display: block;
+  margin: auto;
   position: relative;
-  left: 380px;
-  bottom: 17px;
+  right: 120px;
+  bottom: 20px;
 }
 
 h1 {
