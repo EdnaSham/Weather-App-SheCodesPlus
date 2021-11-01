@@ -11,125 +11,122 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-
     <script
       src="https://kit.fontawesome.com/330edf8b93.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="src/styles.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <br />
-    <div class="container">
-      <div class="card">
-        <div class="container overflow-hidden">
-          <div class="row">
-            <div class="col-6">
-              <input
-                type="search"
-                class="form-control"
-                id="enterACity"
-                placeholder="Enter a city"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                class="form-control"
-                id="searchTheCity"
-                value="Search"
-              />
-            </div>
-            <div class="col-3">
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="currentCity"
-                width="100px"
-              >
-                Current
-              </button>
-            </div>
+    <div class="appContainer">
+      <div class="container overflow-hidden">
+        <div class="row firstRow">
+          <div class="col-5">
+            <input
+              type="search"
+              class="form-control"
+              id="enterACity"
+              placeholder="Enter a city"
+            />
           </div>
-        </div>
-
-        <hr />
-        <div class="row">
-          <div class="col-9">
-            <h3 id="displayTheCity">Austin</h3>
-            <p id="dayTime">Sunday 26 September</p>
+          <div class="col-3">
+            <input
+              type="submit"
+              class="form-control"
+              id="searchTheCity"
+              value="Search"
+            />
           </div>
-          <div class="col currentWeather">
-            <i class="fas fa-sun"></i>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-9">
-            <div class="row">
-              <div class="col-2">
-                <p class="extraInfo">HIGH <br /><em>90°</em></p>
-              </div>
-              <div class="col-3">
-                <p class="extraInfo">SUNRISE <br /><em>7:30AM</em></p>
-              </div>
-              <div class="col-3 wind">
-                <p class="extraInfo">WIND <br /><em>10 mph</em></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-2">
-                <p class="extraInfo">LOW <br /><em>59°</em></p>
-              </div>
-              <div class="col-3">
-                <p class="extraInfo">SUNSET<br /><em>7:30PM</em></p>
-              </div>
-              <div class="col-3 rain">
-                <p class="extraInfo">RAIN <br /><em>20%</em></p>
-              </div>
-            </div>
-          </div>
-          <div class="col currentDegree">
-            <h1>
-              <span id="temprature"></span><span id="cel">°C</span>
-              <!-- <span id="temprature">82</span><a href="" id="cel">°C</a> -->
-              <!--   <span id="divider"> | </span><a href="" id="fah">°F</a> -->
-            </h1>
-          </div>
-        </div>
-        <hr />
-        <h4>Next 5 Days...</h4>
-        <br />
-        <div class="row">
-          <div class="col-2">
-            Mon <br /><i class="fas fa-cloud-sun-rain sunRain"></i>
-            <br />91°/63°
-          </div>
-          <div class="col-2">
-            Tue <br /><i class="fas fa-cloud-sun-rain sunRain"></i>
-            <br />93°/72°
-          </div>
-          <div class="col-2">
-            Wed <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
-            <br />90°/72°
-          </div>
-          <div class="col-2">
-            Thu <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
-            <br />88°/72°
-          </div>
-          <div class="col-2">
-            Fri <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
-            <br />81°/70°
+          <div class="col-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="currentCity"
+              width="100px"
+            >
+              Current
+            </button>
           </div>
         </div>
       </div>
+
+      <hr />
+
+      <div class="row secondRow">
+        <div class="col-6">
+          <ul>
+            <li id="displayTheCity">Austin</li>
+            <li id="dayTime">Sunday 26 September</li>
+            <li id="weatherDescription">Weather Description</li>
+            <li id="wind">Wind: <span>20km</span></li>
+            <li id="humidity">Humidity: <span>20%</span></li>
+          </ul>
+        </div>
+        <div class="col-3 currentWeather">
+          <i class="fas fa-sun"></i>
+        </div>
+        <div class="col-3 currentDegree">
+          <span id="temprature"></span><a href="" id="cel">°C</a>
+          <span id="divider"> | </span><a href="" id="fah">°F</a>
+        </div>
+      </div>
+
+      <!--       <div class="row">
+        <div class="col-2">
+          <p class="extraInfo">HIGH <br /><em>90°</em></p>
+        </div>
+        <div class="col-3">
+          <p class="extraInfo">SUNRISE <br /><em>7:30AM</em></p>
+        </div>
+        <div class="col-3 wind">
+          <p class="extraInfo">WIND <br /><em>10 mph</em></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <p class="extraInfo">LOW <br /><em>59°</em></p>
+        </div>
+        <div class="col-3">
+          <p class="extraInfo">SUNSET<br /><em>7:30PM</em></p>
+        </div>
+        <div class="col-3 rain">
+          <p class="extraInfo">RAIN <br /><em>20%</em></p>
+        </div>
+      </div> -->
+
+      <hr />
+      <h5>Next 5 Days...</h5>
+      <br />
+      <div class="row">
+        <div class="col-2">
+          Mon <br /><i class="fas fa-cloud-sun-rain sunRain"></i> <br />91°/63°
+        </div>
+        <div class="col-2">
+          Tue <br /><i class="fas fa-cloud-sun-rain sunRain"></i> <br />93°/72°
+        </div>
+        <div class="col-2">
+          Wed <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
+          <br />90°/72°
+        </div>
+        <div class="col-2">
+          Thu <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
+          <br />88°/72°
+        </div>
+        <div class="col-2">
+          Fri <br /><i class="fas fa-cloud-showers-heavy rainHeavy"></i>
+          <br />81°/70°
+        </div>
+      </div>
       <small id="srcCodeLink">
+        This project was coded by Edna Shamouni and is
         <a
           href="https://github.com/EdnaSham/Weather-App-SheCodesPlus"
           target="_blank"
-          >Open Source Code</a
-        >, by Edna Shamouni
+          >open-sourced on GitHub</a
+        >
+        and hosted on <a href="">Netlify</a>.
       </small>
     </div>
 

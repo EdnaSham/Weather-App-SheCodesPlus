@@ -1,8 +1,21 @@
-.card {
-  background-color: #f0fbff;
-  padding: 30px;
-  margin: 30px auto;
-  width: 500px;
+hr {
+  width: 410px;
+}
+small {
+  font-size: 10px;
+}
+ul {
+  list-style: none;
+  padding: 0px;
+}
+.appContainer {
+  max-width: 500px;
+  margin: 50px auto;
+  border: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #aedefc;
+  padding: 15px 20px 15px 40px;
 }
 .form-control {
   background-color: #aedefc;
@@ -13,11 +26,11 @@
   margin-left: -9px;
 }
 .currentWeather {
-  color: #f9d71c;
   font-size: 85px;
+}
+.currentDegree {
   position: relative;
-  right: 75px;
-  top: -20px;
+  right: 10px;
 }
 .sunRain {
   color: #3c90d4;
@@ -37,10 +50,10 @@
   position: relative;
   right: 10px;
 }
-.currentDegree {
+.fa-sun {
   position: relative;
-  right: 63px;
-  top: 5px;
+  bottom: 20px;
+  font-size: 40 px;
 }
 .extraInfo {
   font-size: 12px;
@@ -52,13 +65,11 @@
   font-size: 10px;
   position: relative;
   bottom: 27px;
-  /* color: black; */
-  color: #f9d71c;
 }
 #searchTheCity {
   width: 93px;
   position: relative;
-  left: 4px;
+  left: 22px;
 }
 #currentCity {
   background-color: #aedefc;
@@ -67,28 +78,21 @@
   height: 40px;
   border: none;
 }
+#displayTheCity {
+  font-size: 33px;
+  font-weight: bold;
+}
+#dayTime,
+#weatherDescription,
+#wind,
+#humidity {
+  font-size: 12px;
+}
 #temprature {
-  font-size: 45px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 #srcCodeLink {
   width: 260px;
-  display: block;
-  margin: auto;
-  position: relative;
-  right: 120px;
-  bottom: 20px;
-}
-
-h1 {
-  font-size: 55px;
-  font-weight: bold;
-  color: #f9d71c;
-}
-h3 {
-  font-size: 41px;
-}
-
-hr {
-  width: 436px;
 }
