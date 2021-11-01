@@ -88,6 +88,13 @@ ul {
 #humidity {
   font-size: 12px;
 }
+#cityWind,
+#cityHumidity,
+#cityWindUnit,
+#cityHumidityUnit {
+  font-size: 12px;
+  color: blue;
+}
 #temprature {
   font-size: 40px;
   font-weight: bold;

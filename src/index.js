@@ -22,23 +22,27 @@ todaysDayTime.innerHTML = today;
 //Add a search engine, when searching for a city (i.e. Paris),
 // display the city name and current temperature on the page after the user submits the form.
 
-let apiURL =
-  "https://api.openweathermap.org/data/2.5/weather?q=austin&appid=50c2acd53349fabd54f52b93c8650d37&units=metric";
-//console.log(apiURL);
-function getDefaultTemp(response) {
+function getCityInfo(response) {
   let currentTemp = document.querySelector("#temprature");
+  let currentWeatherDescription = document.querySelector("#weatherDescription");
+  let currentWind = document.querySelector("#cityWind");
+  let currentHumidity = document.querySelector("#cityHumidity");
+
   currentTemp.innerHTML = Math.round(response.data.main.temp);
+  currentWeatherDescription.innerHTML =
+    response.data.weather[0].description.charAt(0).toUpperCase() +
+    response.data.weather[0].description.slice(1);
+  currentWind.innerHTML = Math.round(response.data.wind.speed);
+  currentHumidity.innerHTML = Math.round(response.data.main.humidity);
 }
-axios.get(apiURL).then(getDefaultTemp);
 
 function displaySearchedCity(event) {
   event.preventDefault();
   let cityName = document.querySelector("#enterACity");
   let displayCityName = document.querySelector("#displayTheCity");
-  //console.log(enteredCityName);
   if (cityName != "") {
     displayCityName.innerHTML = cityName.value;
-    displaySearchedCityTemp(cityName.value);
+    displaySearchedCityInfo(cityName.value);
   } else {
   }
 }
@@ -48,22 +52,21 @@ function displayEnteredCity(event) {
   let displayCityName = document.querySelector("#displayTheCity");
   if (event.keyCode === 13) {
     displayCityName.innerHTML = cityName.value;
-    displaySearchedCityTemp(cityName.value);
+    displaySearchedCityInfo(cityName.value);
   } else {
   }
 }
 
-function displaySearchedCityTemp(cityName) {
+function displaySearchedCityInfo(cityName) {
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-  //console.log(apiURL);
-  function getCityTemp(response) {
-    let currentTemp = document.querySelector("#temprature");
-    currentTemp.innerHTML = Math.round(response.data.main.temp);
-  }
-
-  axios.get(apiURL).then(getCityTemp);
+  axios.get(apiURL).then(getCityInfo);
 }
+
+let apiURL =
+  "https://api.openweathermap.org/data/2.5/weather?q=austin&appid=50c2acd53349fabd54f52b93c8650d37&units=metric";
+
+axios.get(apiURL).then(getCityInfo);
 
 let searchClicked = document.querySelector("#searchTheCity");
 searchClicked.addEventListener("click", displaySearchedCity);
@@ -71,45 +74,37 @@ searchClicked.addEventListener("click", displaySearchedCity);
 let cityNameClicked = document.querySelector("#enterACity");
 cityNameClicked.addEventListener("keydown", displayEnteredCity);
 
-/* 🙀 Bonus point:
-Add a Current Location button. When clicking on it, 
+/* Add a Current Location button. When clicking on it, 
 it uses the Geolocation API to get your GPS coordinates and display 
 the city and current temperature using the OpenWeather API. */
 
-let currentClicked = document.querySelector("#currentCity");
-currentClicked.addEventListener("click", displayCurrentCityTemp);
-
-function displayCurrentCityTemp() {
+function displayCurrentCityInfo(position) {
   function findCoords(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    console.log(lat);
-    console.log(lon);
-
     let apiKey = "50c2acd53349fabd54f52b93c8650d37";
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    console.log(apiURL);
 
-    axios.get(apiURL).then(displayCityTemp);
+    axios.get(apiURL).then(displayCityInfo);
 
-    function displayCityTemp(response) {
+    function displayCityInfo(response) {
       let displayCityName = document.querySelector("#displayTheCity");
-      let currentTemp = document.querySelector("#temprature");
       displayCityName.innerHTML = response.data.name;
-      currentTemp.innerHTML = Math.round(response.data.main.temp);
-      console.log(displayCityName);
-      console.log(currentTemp);
+      axios.get(apiURL).then(getCityInfo);
     }
   }
 
   navigator.geolocation.getCurrentPosition(findCoords);
 }
 
+let currentClicked = document.querySelector("#currentCity");
+currentClicked.addEventListener("click", displayCurrentCityInfo);
+
 /* Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit.
 When clicking on it, it should convert the temperature to Fahrenheit. When clicking on
 Celsius, it should convert it back to Celsius. */
 
-/* function showFahTemp(event) {
+function showFahTemp(event) {
   event.preventDefault();
   let temp = document.querySelector("#temprature");
   temp.innerHTML = 66;
@@ -125,4 +120,4 @@ function showCelTemp(event) {
 }
 
 let celsius = document.querySelector("#cel");
-celsius.addEventListener("click", showCelTemp); */
+celsius.addEventListener("click", showCelTemp);
