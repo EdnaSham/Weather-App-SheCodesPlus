@@ -34,6 +34,13 @@ function getCityInfo(response) {
     response.data.weather[0].description.slice(1);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
+
+  let currentWeatherIcon = document.querySelector("img");
+  console.log(response.data.weather[0].icon);
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function displaySearchedCity(event) {

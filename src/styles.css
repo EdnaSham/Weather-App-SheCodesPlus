@@ -8,6 +8,12 @@ ul {
   list-style: none;
   padding: 0px;
 }
+img {
+  font-size: 30px;
+  position: relative;
+  bottom: 20px;
+  right: 10px;
+}
 .appContainer {
   max-width: 500px;
   margin: 50px auto;
@@ -25,9 +31,7 @@ ul {
   height: 40px;
   margin-left: -9px;
 }
-.currentWeather {
-  font-size: 85px;
-}
+
 .currentDegree {
   position: relative;
   right: 10px;
