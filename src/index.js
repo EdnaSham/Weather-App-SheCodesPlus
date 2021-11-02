@@ -28,6 +28,8 @@ function getCityInfo(response) {
   let currentWind = document.querySelector("#cityWind");
   let currentHumidity = document.querySelector("#cityHumidity");
 
+  celGlobalTemp = response.data.main.temp;
+
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentWeatherDescription.innerHTML =
     response.data.weather[0].description.charAt(0).toUpperCase() +
@@ -36,7 +38,6 @@ function getCityInfo(response) {
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
 
   let currentWeatherIcon = document.querySelector("img");
-  console.log(response.data.weather[0].icon);
   currentWeatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -69,6 +70,8 @@ function displaySearchedCityInfo(cityName) {
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(getCityInfo);
 }
+
+let celGlobalTemp = null;
 
 let apiURL =
   "https://api.openweathermap.org/data/2.5/weather?q=austin&appid=50c2acd53349fabd54f52b93c8650d37&units=metric";
@@ -114,17 +117,22 @@ Celsius, it should convert it back to Celsius. */
 function showFahTemp(event) {
   event.preventDefault();
   let temp = document.querySelector("#temprature");
-  temp.innerHTML = 66;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  temp.innerHTML = Math.round(celGlobalTemp * (9 / 5) + 32);
 }
-
-let fahrenheit = document.querySelector("#fah");
-fahrenheit.addEventListener("click", showFahTemp);
 
 function showCelTemp(event) {
   event.preventDefault();
   let temp = document.querySelector("#temprature");
-  temp.innerHTML = 19;
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+  temp.innerHTML = Math.round(celGlobalTemp);
 }
 
+let fahrenheit = document.querySelector("#fah");
 let celsius = document.querySelector("#cel");
+let temp = document.querySelector("#temprature");
+
+fahrenheit.addEventListener("click", showFahTemp);
 celsius.addEventListener("click", showCelTemp);
