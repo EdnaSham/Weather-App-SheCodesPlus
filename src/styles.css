@@ -89,6 +89,8 @@ img {
   width: 93px;
   height: 40px;
   border: none;
+  position: relative;
+  left: 2px;
 }
 #displayTheCity {
   font-size: 33px;
