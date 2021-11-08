@@ -1,23 +1,26 @@
 //Display the current date and time using JavaScript such as Tuesday 16:00
-let currentDayTime = new Date();
-let daysOfTheWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let currentDay = daysOfTheWeek[currentDayTime.getDay()];
-let currentHour = currentDayTime.getHours();
-currentHour = ("0" + currentHour).slice(-2);
-let currentMinutes = currentDayTime.getMinutes();
-currentMinutes = ("0" + currentMinutes).slice(-2);
+function formatDayTime(timestamp) {
+  let currentDayTime = timestamp;
 
-let todaysDayTime = document.querySelector("#dayTime");
-let today = `${currentDay} ${currentHour}:${currentMinutes}`;
-todaysDayTime.innerHTML = today;
+  let daysOfTheWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentDay = daysOfTheWeek[currentDayTime.getDay()];
+  let currentHour = currentDayTime.getHours();
+  currentHour = ("0" + currentHour).slice(-2);
+  let currentMinutes = currentDayTime.getMinutes();
+  currentMinutes = ("0" + currentMinutes).slice(-2);
+
+  let todaysDayTime = document.querySelector("#dayTime");
+  let today = `${currentDay} ${currentHour}:${currentMinutes}`;
+  todaysDayTime.innerHTML = `${today} UTC`;
+}
 
 //Add a search engine, when searching for a city (i.e. Paris),
 // display the city name and current temperature on the page after the user submits the form.
@@ -28,7 +31,7 @@ function getCityInfo(response) {
   let currentWind = document.querySelector("#cityWind");
   let currentHumidity = document.querySelector("#cityHumidity");
 
-  celGlobalTemp = response.data.main.temp;
+  //celGlobalTemp = response.data.main.temp;
 
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   currentWeatherDescription.innerHTML =
@@ -42,6 +45,8 @@ function getCityInfo(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  formatDayTime(new Date(response.data.dt * 1000));
 }
 
 function displaySearchedCity(event) {
@@ -67,14 +72,14 @@ function displayEnteredCity(event) {
 
 function displaySearchedCityInfo(cityName) {
   let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
   axios.get(apiURL).then(getCityInfo);
 }
 
-let celGlobalTemp = null;
+//let celGlobalTemp = null;
 
 let apiURL =
-  "https://api.openweathermap.org/data/2.5/weather?q=austin&appid=50c2acd53349fabd54f52b93c8650d37&units=metric";
+  "https://api.openweathermap.org/data/2.5/weather?q=austin&appid=50c2acd53349fabd54f52b93c8650d37&units=imperial";
 
 axios.get(apiURL).then(getCityInfo);
 
@@ -93,7 +98,7 @@ function displayCurrentCityInfo(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
     let apiKey = "50c2acd53349fabd54f52b93c8650d37";
-    let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
 
     axios.get(apiURL).then(displayCityInfo);
 
@@ -122,17 +127,17 @@ function showFahTemp(event) {
   temp.innerHTML = Math.round(celGlobalTemp * (9 / 5) + 32);
 }
 
-function showCelTemp(event) {
+/* function showCelTemp(event) {
   event.preventDefault();
   let temp = document.querySelector("#temprature");
   fahrenheit.classList.remove("active");
   celsius.classList.add("active");
   temp.innerHTML = Math.round(celGlobalTemp);
-}
+} */
 
 let fahrenheit = document.querySelector("#fah");
-let celsius = document.querySelector("#cel");
-let temp = document.querySelector("#temprature");
+/* let celsius = document.querySelector("#cel");
+let temp = document.querySelector("#temprature"); */
 
 fahrenheit.addEventListener("click", showFahTemp);
-celsius.addEventListener("click", showCelTemp);
+// celsius.addEventListener("click", showCelTemp);

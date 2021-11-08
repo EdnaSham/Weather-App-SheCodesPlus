@@ -11,8 +11,8 @@ ul {
 img {
   font-size: 30px;
   position: relative;
-  bottom: 20px;
   right: 10px;
+  top: 16px;
 }
 .appContainer {
   max-width: 500px;
@@ -35,6 +35,7 @@ img {
 .currentDegree {
   position: relative;
   right: 10px;
+  top: 36px;
 }
 .sunRain {
   color: #3c90d4;
@@ -70,13 +71,11 @@ img {
 .active:hover {
   text-decoration: none;
 }
-
-#cel,
-#fah,
-#divider {
-  font-size: 10px;
+#fah {
+  font-size: 15px;
   position: relative;
-  bottom: 27px;
+  bottom: 22px;
+  right: 6px;
 }
 #searchTheCity {
   width: 93px;
