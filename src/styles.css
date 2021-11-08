@@ -8,12 +8,6 @@ ul {
   list-style: none;
   padding: 0px;
 }
-img {
-  font-size: 30px;
-  position: relative;
-  right: 10px;
-  top: 16px;
-}
 .appContainer {
   max-width: 500px;
   margin: 50px auto;
@@ -34,7 +28,7 @@ img {
 
 .currentDegree {
   position: relative;
-  right: 10px;
+  right: 35px;
   top: 36px;
 }
 .sunRain {
@@ -115,4 +109,15 @@ img {
 
 #srcCodeLink {
   width: 260px;
+}
+
+#mainIcon {
+  font-size: 30px;
+  position: relative;
+  right: 35px;
+  top: 16px;
+}
+#forecastInfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

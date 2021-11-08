@@ -30,6 +30,8 @@ function getCityInfo(response) {
   let currentWeatherDescription = document.querySelector("#weatherDescription");
   let currentWind = document.querySelector("#cityWind");
   let currentHumidity = document.querySelector("#cityHumidity");
+  let currentMinTemp = document.querySelector("#minTemp");
+  let currentMaxTemp = document.querySelector("#maxTemp");
 
   //celGlobalTemp = response.data.main.temp;
 
@@ -39,6 +41,8 @@ function getCityInfo(response) {
     response.data.weather[0].description.slice(1);
   currentWind.innerHTML = Math.round(response.data.wind.speed);
   currentHumidity.innerHTML = Math.round(response.data.main.humidity);
+  currentMinTemp.innerHTML = `${Math.round(response.data.main.temp_min)}°`;
+  currentMaxTemp.innerHTML = `${Math.round(response.data.main.temp_max)}°`;
 
   let currentWeatherIcon = document.querySelector("img");
   currentWeatherIcon.setAttribute(
@@ -126,6 +130,8 @@ function showFahTemp(event) {
   fahrenheit.classList.add("active");
   temp.innerHTML = Math.round(celGlobalTemp * (9 / 5) + 32);
 }
+let fahrenheit = document.querySelector("#fah");
+fahrenheit.addEventListener("click", showFahTemp);
 
 /* function showCelTemp(event) {
   event.preventDefault();
@@ -135,9 +141,7 @@ function showFahTemp(event) {
   temp.innerHTML = Math.round(celGlobalTemp);
 } */
 
-let fahrenheit = document.querySelector("#fah");
 /* let celsius = document.querySelector("#cel");
 let temp = document.querySelector("#temprature"); */
 
-fahrenheit.addEventListener("click", showFahTemp);
 // celsius.addEventListener("click", showCelTemp);

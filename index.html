@@ -71,7 +71,7 @@
           </ul>
         </div>
         <div class="col-3">
-          <img src="" alt="Icon" />
+          <img src="" alt="Icon" id="mainIcon" />
         </div>
         <div class="col-3 currentDegree">
           <span id="temprature"></span>
@@ -86,17 +86,19 @@
 
       <hr />
       <h5>Next 5 Days...</h5>
-      <br />
       <div class="row">
-        <div class="col-2">
+        <div class="col-2" id="forecastInfo">
           Mon <br /><img
             src="http://openweathermap.org/img/wn/04d@2x.png"
             alt="Icon"
             width="20px"
+            id="forecastIcon"
           />
-          <br />91°/63°
+          <br />
+          <span id="maxTemp"></span> <span id="minTemp"></span>
         </div>
       </div>
+
       <small id="srcCodeLink">
         This project was coded by Edna Shamouni and is
         <a
