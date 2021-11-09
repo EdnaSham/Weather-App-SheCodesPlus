@@ -100,7 +100,7 @@ ul {
 #cityWindUnit,
 #cityHumidityUnit {
   font-size: 12px;
-  color: blue;
+  color: #3c90d4;
 }
 #temprature {
   font-size: 40px;
@@ -120,4 +120,15 @@ ul {
 #forecastInfo {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+#maxTemp,
+#minTemp {
+  color: #3c90d4;
+}
+#minTemp {
+  font-weight: 300;
+}
+#forecastedDay {
+  position: relative;
+  left: 10px;
 }
