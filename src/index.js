@@ -52,11 +52,13 @@ function getForecast(coordinates) {
 function displayForecast(response) {
   let forecast = document.querySelector("#weatherForecast");
   let forecastHTML = `<div class="row">`;
+
   let timestamp = new Date(response.data.daily[1].dt * 1000);
   let daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   for (let i = 0; i < 5; i++) {
-    let day = daysOfTheWeek[timestamp.getDay() + i];
+    let day =
+      daysOfTheWeek[new Date(response.data.daily[i + 1].dt * 1000).getDay()];
     forecastHTML =
       forecastHTML +
       `<div class="col-2" id="forecastInfo">
